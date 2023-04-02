@@ -1,0 +1,31 @@
+#!/usr/bin/env python 
+import pandas as pd
+import argparse
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--model", nargs="+")
+parser.add_argument("--outcsv")
+args = parser.parse_args()
+
+model_dict = {}
+
+for mpath in args.model:
+    if not os.path.exists(mpath):
+        raise OSError("--model %s does not exist" % mpath)
+
+    model = pd.read_pickle(mpath)
+    sites = model["SITE_labels"]
+    print("Found %i sites in %s:\n%s" %(len(sites), mpath, ", ".join(sites)))
+    for i, site in enumerate(sites):
+        model_dict[site] = {}
+        N_f = model["gamma_star"].shape[1]
+        for parameter in ["gamma_star", "delta_star"]: # "gamma_hat", , "delta_hat"
+            print("Adding %s %s to dataframe" %(site, parameter))
+            model_dict[site].update(dict(zip(
+                ["%s_F%02d" %(parameter, j) for j in range(N_f)],
+                model[parameter][i, :]
+                )))
+
+model_df = pd.DataFrame.from_dict(model_dict, orient="index")
+model_df.to_csv(args.outcsv, index_label="SITE")

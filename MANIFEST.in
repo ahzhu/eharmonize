@@ -1,0 +1,5 @@
+include README.md
+include eharmonize/data/FA_reference.csv
+include eharmonize/data/FA_subsample_reference.csv
+include eharmonize/data/reference_meta.json
+include eharmonize/data/ENIGMA_LUT.txt

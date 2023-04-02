@@ -1,0 +1,21 @@
+{
+    "v0.0": {
+        "FA": {
+            "created": "November 16, 2022",
+            "user": "azhu",
+            "filepath": "FA_reference.csv",
+            "age_min": 3,
+            "age_max": 80
+        }
+    },
+    
+    "v0.1": {
+        "FA": {
+            "created": "February 9, 2023",
+            "user": "azhu",
+            "filepath": "FA_subsample_reference.csv",
+            "age_min": 3,
+            "age_max": 80
+        }
+    }
+}
