@@ -5,6 +5,8 @@
 
 Please see wiki for additional details and information. 
 
+Current version (Release v0.0.0): [![DOI](https://zenodo.org/badge/622720163.svg)](https://doi.org/10.5281/zenodo.15116824)
+
 ## Installation 
 
 As this package has not been added to PyPI, please follow the instructions below carefully.
